@@ -32,6 +32,15 @@ public class Main {
         }
         System.out.println("=============================================");
 
+        selectionSort(bigArray);
+
+
+        for (int i = 0; i < 15; i++) {
+            System.out.printf("%8d --- %14d\n",i,bigArray[i]);
+        }
+
+        System.out.println("=============================================");
+
         insertionSort(bigArray);
 
 
@@ -41,7 +50,8 @@ public class Main {
 
     }
 
-    public static void insertionSort (int[] arr) {
+    //FIXME
+    public static void selectionSort (int[] arr) {
         int min;
         int indexMin;
 
@@ -49,7 +59,7 @@ public class Main {
             min  = arr[i];
             indexMin = i;
 
-            for (int j = i; j < arr.length; j++) {
+            for (int j = i+1; j < arr.length; j++) {
                 if (arr[j] < min)
                     indexMin = j;
             }
@@ -63,7 +73,25 @@ public class Main {
     }
 
 
+    public static void insertionSort (int[] arr) {
+        
+        int temp;
+        int j;
+        
+        for (int i = 1; i < arr.length; i++) {
 
+            temp = arr[i];
+            j = i - 1;
+
+            while (j >= 0 && arr[j] < temp) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = temp;
+        }
+
+
+    }
 
 
 }
