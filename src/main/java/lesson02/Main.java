@@ -22,19 +22,13 @@ public class Main {
 
         MyArrayList<Integer> myArrayList = new MyArrayList<Integer>();
 
-//        int[] bigArray = new int[ARRAY_SIZE];
-        int[] bigArray = {7,1,13,3,12,5,6,0,8,9,10,4,11,2,14};
 
-//        for (int i = 0; i < bigArray.length; i++)
-//            bigArray[i] = (int) (Math.random() * Integer.MAX_VALUE);
 
-//        for (int i = 0; i < bigArray.length; i++) {
+        for (int i = 0; i < myArrayList.size(); i++)
+            myArrayList.insert((int) (Math.random() * Integer.MAX_VALUE));
 
-        System.out.println("==== showArray =========================================");
-        for (int i = 0; i < 15; i++) {
-//            if (bigArray[i] > 2147460000)
-                System.out.printf("%8d --- %14d\n",i,bigArray[i]);
-        }
+
+
 
 
         long sec = System.currentTimeMillis() / 1000;
