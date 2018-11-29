@@ -15,7 +15,7 @@ package lesson02;
 public class Main {
 
 //    final static int ARRAY_SIZE = 1000000;
-    final static int ARRAY_SIZE = 100000;
+    final static int ARRAY_SIZE = 1000000;
 
     public static void main(String[] args) {
         System.out.println("Lesson 2\n");
@@ -24,7 +24,7 @@ public class Main {
 
 
 
-        for (int i = 0; i < myArrayList.size(); i++)
+        for (int i = 0; i < ARRAY_SIZE; i++)
             myArrayList.insert((int) (Math.random() * Integer.MAX_VALUE));
 
 
