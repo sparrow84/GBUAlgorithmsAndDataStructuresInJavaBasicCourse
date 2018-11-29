@@ -37,7 +37,7 @@ public class Main {
         System.out.println("==== selectionSort === time wasted (sec) - " + ((System.currentTimeMillis() / 1000) - sec) + "  ==================");
 
         for (int i = 0; i < 15; i++)
-            System.out.printf("%8d --- %14d\n",i,bigArray[i]);
+            System.out.printf("%8d --- %14d\n",i,myArrayList.get(i));
 
 
         sec = System.currentTimeMillis() / 1000;
@@ -46,7 +46,7 @@ public class Main {
         System.out.println("==== insertionSort === time wasted (sec) - " + ((System.currentTimeMillis() / 1000) - sec) + "  ==================");
 
         for (int i = 0; i < 15; i++)
-            System.out.printf("%8d --- %14d\n",i,bigArray[i]);
+            System.out.printf("%8d --- %14d\n",i,myArrayList.get(i));
 
 
     }
