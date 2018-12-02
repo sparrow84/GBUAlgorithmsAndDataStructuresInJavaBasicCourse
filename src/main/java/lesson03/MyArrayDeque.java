@@ -37,31 +37,33 @@ public class MyArrayDeque<Item> {
     }
 
     public void resize () {
-        Object[] temp = new Object[size * SIZE_INCREASE_RATIO];
+        int newSize;
+        int tempIndex = 1;
 
+        if (size == 0)
+            newSize = SIZE_INCREASE_RATIO;
+        else
+            newSize = size * SIZE_INCREASE_RATIO;
 
-        for (int i = 0; i < size; i++) {
-            temp[i] = queue[(start + i) % size];
+        Object[] temp = new Object[newSize];
+
+        if (size > 0) {
+            if (end < start) {
+                for (int i = start; i < queue.length; i++, tempIndex++)
+                    temp[tempIndex] = queue[i];
+
+                for (int i = 0; i <= end; i++, tempIndex++)
+                    temp[tempIndex] = queue[i];
+            } else
+                for (int i = start; i < end; i++, tempIndex++)
+                    temp[tempIndex] = queue[i];
+        } else {
+            start = 0;
+            end = -1;
         }
-
-
-
         queue = temp;
-        start = 0;
-        end = size;
     }
 
-    public void resize1 (int capacity) {
-
-        Object[] temp = new Object[capacity];
-
-        for (int i = 0; i < size; i++)
-            temp[i] = queue[(start + i) % size];
-
-        queue = temp;
-        start = 0;
-        end = size;
-    }
 
     public void insertLeft (Item item) {
         if (queue.length == size)
@@ -75,20 +77,38 @@ public class MyArrayDeque<Item> {
         queue[start] = item;
         size++;
 
+        if (size == 1)
+            end = start;
+    }
+
+    public void inserRight (Item item) {
+        if (queue.length == size)
+            resize();
+
+        if (end == queue.length - 1)
+            end = 0;
+        else
+            end++;
+
+        queue[start] = item;
+        size++;
+
+        if (size == 1)
+            start = end;
+    }
+
+    public boolean removeLeft () {
+        boolean res = true;
+
+        if (size == 0) {
+            System.err.println("Queue empty");
+            res = false;
+        }
+
 
         //FIXME
-        if ()
 
-
-
-    }
-
-    public void inserRight () {
-        //
-    }
-
-    public void removeLeft () {
-        //
+        return res;
     }
 
     public void removeRight () {
