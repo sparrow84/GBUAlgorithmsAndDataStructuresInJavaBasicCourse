@@ -15,7 +15,7 @@ package lesson02;
 public class Main {
 
 //    final static int ARRAY_SIZE = 1000000;
-    final static int ARRAY_SIZE = 1000000;
+    final static int ARRAY_SIZE = 100000;
 
     public static void main(String[] args) {
         System.out.println("Lesson 2\n");
