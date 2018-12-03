@@ -97,43 +97,29 @@ public class MyArrayDeque<Item> {
             start = end;
     }
 
-    public boolean removeLeft () {
-        boolean res = true;
+    public Object peekLeft () {
+        Object res;
 
         if (size == 0) {
             System.err.println("Queue empty");
-            res = false;
+            res = null;
+        } else {
+            res = queue[start];
         }
-
-
-        //FIXME
-
         return res;
     }
 
-    public void removeRight () {
-        //
+    public Object peekRight () {
+        Object res;
+
+        if (size == 0) {
+            System.err.println("Queue empty");
+            res = null;
+        } else {
+            res = queue[end];
+        }
+        return res;
     }
-
-//    public void  () {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
