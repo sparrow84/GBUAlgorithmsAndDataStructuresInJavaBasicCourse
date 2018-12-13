@@ -11,11 +11,18 @@ public class MyBST<Key extends Comparable<Key>, Value> {
         Node right;
         int size; //кол-во узлов в дереве, корнем которого является данный узел
         int height; // высота дерева
-        public Node(Key key, Value value, int size) {
+        public Node(Key key, Value value, int size, int height) {
             this.key = key;
             this.value = value;
             this.size = size;
+            this.height = height;
         }
+    }
+
+    public boolean isBalaced() {
+
+
+        return false;
     }
 
     private Node root = null;
