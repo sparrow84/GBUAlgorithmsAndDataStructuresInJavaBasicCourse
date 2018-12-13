@@ -10,6 +10,7 @@ public class MyBST<Key extends Comparable<Key>, Value> {
         Node left;
         Node right;
         int size; //кол-во узлов в дереве, корнем которого является данный узел
+        int height; // высота дерева
         public Node(Key key, Value value, int size) {
             this.key = key;
             this.value = value;
@@ -21,6 +22,17 @@ public class MyBST<Key extends Comparable<Key>, Value> {
 
     public boolean isEmpty() {
         return root == null;
+    }
+
+    public int height() {
+        return this.height(root);
+    }
+
+    private int height(Node node) {
+        if (node == null)
+            return 0;
+        else
+            return node.height;
     }
 
     public int size() {
@@ -154,22 +166,4 @@ public class MyBST<Key extends Comparable<Key>, Value> {
         root = delete(root, key);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private static int getRandomNumber(int a, int b) {
-        if (b < a)
-            return getRandomNumber(b, a);
-        return a + (int) ((1 + b - a) * Math.random());
-    }
 }
