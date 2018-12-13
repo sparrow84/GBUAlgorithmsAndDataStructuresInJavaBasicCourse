@@ -2,11 +2,12 @@ package lesson05;
 
 import java.util.Stack;
 
-public class lesson05 {
+public class Lesson05 {
     public static void main(String[] args) {
 
         double number = 5;
         int degree = -2;
+
 
         System.out.println(recursiveExponentiation(number, degree));
         System.out.println(cyclicExponentiation(number,degree));
