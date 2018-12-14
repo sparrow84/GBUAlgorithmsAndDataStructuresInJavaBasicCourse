@@ -1,8 +1,25 @@
 package lesson06;
 
+import lesson06.MyBST.MyBST;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Proram {
     public static void main(String[] args) {
 
+        List<MyBST<Integer,Integer>> myBST = new ArrayList<>();
+
+        int treeCount = 20;
+        int treeHeight = 6;
+        int randMin = -100;
+        int randMax = 100;
+
+        for (int i = 0; i < treeCount; i++) {
+            myBST.add(i, new MyBST<>());
+            while (myBST.get(i).height() < treeHeight)
+                myBST.get(i).put(getRandomNumber(randMin,randMax),getRandomNumber(randMin,randMax));
+        }
     }
 
 /*

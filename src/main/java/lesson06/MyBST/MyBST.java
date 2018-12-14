@@ -5,12 +5,14 @@ import java.util.NoSuchElementException;
 public class MyBST<Key extends Comparable<Key>, Value> {
 
     private class Node {
+
         Key key;
         Value value;
         Node left;
         Node right;
         int size; //кол-во узлов в дереве, корнем которого является данный узел
         int height; // высота дерева
+
         public Node(Key key, Value value, int size, int height) {
             this.key = key;
             this.value = value;
@@ -81,7 +83,7 @@ public class MyBST<Key extends Comparable<Key>, Value> {
 
     private Node put(Node node, Key key, Value value) {
         if (node == null)
-            return new Node(key, value, 1);
+            return new Node(key, value, 1, 0);
 
         int cmp = key.compareTo(node.key);
         if (cmp == 0)
@@ -92,6 +94,8 @@ public class MyBST<Key extends Comparable<Key>, Value> {
             node.right = put(node.right, key, value);
 
         node.size = size(node.left) + size(node.right) + 1;
+        //FIXME
+        node.height = height(node.left) >= height(node.right) ? height(node.left) : height(node.right);
         return node;
     }
 
@@ -165,7 +169,10 @@ public class MyBST<Key extends Comparable<Key>, Value> {
             node.left = deleteMax(tmp.left);
             node.right = tmp.right;
         }
-        node.size = size(node.left) + size(node.right) + 1;
+        node.size = size(node.left) + size(node.right) - 1;
+        //FIXME
+        node.height = height(node.left) >= height(node.right) ? height(node.left) : height(node.right);
+
         return node;
     }
 
