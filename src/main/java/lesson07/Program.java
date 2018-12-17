@@ -2,38 +2,39 @@ package lesson07;
 
 public class Program {
     public static void main(String[] args) {
-        Graph g = new Graph(13);
-        //0 6-1-2-5
-        //6 0-4
-        //1 0
-        //2 0
-        //5 3-4-0
-        //3 5-4
-        //4 5-6-3
-        g.addEdge(0,6);
-        g.addEdge(0,1);
-        g.addEdge(0,2);
-        g.addEdge(5,3);
-        g.addEdge(5,4);
-        g.addEdge(5,0);
-        g.addEdge(4,6);
-        g.addEdge(4,3);
 
-        g.addEdge(7,8);
+        int source = 5;
+        int dist = 7;
+        int vertexCount = 10;
 
-        g.addEdge(9,10);
-        g.addEdge(9,12);
-        g.addEdge(9,11);
-        g.addEdge(11,12);
 
-        DepthFirstPaths dfs = new DepthFirstPaths(g, 0);
-        System.out.println(dfs.hasPathTo(5));
-        System.out.println(dfs.hasPathTo(12));
-        System.out.println(dfs.pathTo(5));
-        BreadthFirstPaths bfs = new BreadthFirstPaths(g, 0);
-        System.out.println(bfs.hasPathTo(5));
-        System.out.println(bfs.hasPathTo(12));
-        System.out.println(bfs.pathTo(5));
-        System.out.println(bfs.distTo(5));
+        Graph g = new Graph(vertexCount);
+
+        g.addEdge(0,4);
+        g.addEdge(0,9);
+        g.addEdge(1,5);
+        g.addEdge(1,5);
+        g.addEdge(2,4);
+        g.addEdge(4,9);
+        g.addEdge(5,8);
+        g.addEdge(5,6);
+        g.addEdge(5,9);
+        g.addEdge(6,2);
+        g.addEdge(6,9);
+        g.addEdge(7,3);
+        g.addEdge(7,9);
+
+
+
+        DepthFirstPaths dfs = new DepthFirstPaths(g, source);
+        System.out.println(dfs.hasPathTo(dist));
+        System.out.println(dfs.pathTo(dist));
+
+        System.out.println();
+
+        BreadthFirstPaths bfs = new BreadthFirstPaths(g, source);
+        System.out.println(bfs.hasPathTo(dist));
+        System.out.println(bfs.pathTo(dist));
+        System.out.println(bfs.distTo(dist));
     }
 }
