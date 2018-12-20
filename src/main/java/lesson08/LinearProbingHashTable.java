@@ -6,9 +6,13 @@ public class LinearProbingHashTable<Key, Value> {
     private Object[] keys = new Object[M];
     private Object[] values = new Object[M];
 
-    public int size() {return size;}
+    public int size() {
+        return size;
+    }
 
-    public boolean isEmpty() {return size == 0;}
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
     private int hash(Key key) {
         return (key.hashCode() & 0x7fffffff) % M;
@@ -19,14 +23,13 @@ public class LinearProbingHashTable<Key, Value> {
     }
 
     public Value get(Key key) {
-        if (key == null) {
+        if (key == null)
             throw new IllegalArgumentException("ключ не может равняться null");
-        }
-        for (int i = hash(key); keys[i] != null; i = (i + 1) % M) {
-            if (((Key)keys[i]).equals(key)) {
+
+        for (int i = hash(key); keys[i] != null; i = (i + 1) % M)
+            if (((Key)keys[i]).equals(key))
                 return (Value) values[i];
-            }
-        }
+
         return null;
     }
 
