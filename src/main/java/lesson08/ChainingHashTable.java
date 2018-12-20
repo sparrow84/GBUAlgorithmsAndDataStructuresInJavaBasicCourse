@@ -72,6 +72,7 @@ public class ChainingHashTable<Key, Value> {
 
         int M = (int) (this.M * 1.5);
         Object[] tmp = new Object[M];
+        int size = 0;
         int j;
 
         mark01:
@@ -97,6 +98,6 @@ public class ChainingHashTable<Key, Value> {
 
         this.M = M;
         st = tmp;
-
+        this.size = size;
     }
 }
